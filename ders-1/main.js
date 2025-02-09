@@ -247,7 +247,7 @@ document.write("Sayılar Eşit Mi ? :", sayi4 == sayi5, "<br/>"); // Sayılar e�
 
 // Denktir (===)
 
-document.write("Sayılar Eşit Mi ? :", sayi4 === sayi5, "<br/>"); // sayılar denk mi [ Hem değer hem veri tipi kontrolü yapılır]
+document.write("Sayılar Denk Mi ? :", sayi4 === sayi5, "<br/>"); // sayılar denk mi [ Hem değer hem veri tipi kontrolü yapılır]
 
 document.write("---------------------------------------", "<br/>");
 
