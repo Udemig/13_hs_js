@@ -33,6 +33,13 @@
   .home-img {
     height: 80% !important;
   }
+  .cart-box {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-c {
+    grid-template-columns: 1fr !important;
+    row-gap: 20px !important;
+  }
 }
 
 @media (max-width: 550px) {
