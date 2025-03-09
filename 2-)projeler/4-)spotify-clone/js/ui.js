@@ -77,12 +77,16 @@ export class UI {
   }
 
   // Animasyon ekleyen fonksiyon
+  toggleAnimation() {
+    // Player içerisindeki image'e erişmeli
+    const image = document.querySelector(".info img");
+    // Erişilen resime eğer animate classı yoksa bunu ekle varsa bunu kaldır
+    image.classList.toggle("animate");
+  }
 
   // Player kısmını dinamik renderlayan fonksiyon
 
   renderPlayer(song) {
-    console.log(song);
-
     // Player kısmının içeriğini dışarıdan parametre olarak verilen değer ile dinamik renderla
 
     this.player.innerHTML = ` 
@@ -110,5 +114,11 @@ export class UI {
         <i class="bi bi-boombox"></i>
         <i class="bi bi-pc-display"></i>
       </div>`;
+
+    // Şarkı resminin oynatılma durumuna bağlı olarak resime bir animasyon ekleyebilmek için audio etiketine play ve pause addEventListenerları eklemeliyiz.
+    const audio = document.querySelector("audio");
+
+    audio.addEventListener("play", this.toggleAnimation);
+    audio.addEventListener("pause", this.toggleAnimation);
   }
 }

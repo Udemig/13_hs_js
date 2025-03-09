@@ -217,6 +217,18 @@ main section #list .card .card-info {
   }
 }
 
+@keyframes turn {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate {
+  animation: turn 4s infinite linear;
+}
+
 * {
   margin: 0;
   padding: 0;
