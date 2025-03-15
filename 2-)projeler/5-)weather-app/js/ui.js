@@ -15,6 +15,8 @@ const elements = {
   windSpeed: document.querySelector("#wind-speed"),
   humidity: document.querySelector("#humidity"),
   pressure: document.querySelector("#pressure"),
+  citiesDataList: document.querySelector("#turkish-cities"),
+  themeBtn: document.querySelector("#theme-toggle-btn"),
 };
 
 // Loader'ı aktif eden fonksiyon
@@ -29,6 +31,18 @@ const hideLoader = () => {
   elements.loader.style.display = "none";
 };
 
+// Error'ı render eden fonksiyon
+const showError = () => {
+  // Error'ın gözükmesi için show classı ekle
+  elements.errorMessage.classList.add("show");
+};
+
+// Error'ı gizleyen fonksiyon
+
+const hideError = () => {
+  elements.errorMessage.classList.remove("show");
+};
+
 // Api'dan gelen hava durumu verisi ve bayrak ile arayüzü renderlayan fonksiyon
 const displayWeather = (data, flagUrl) => {
   // Güncel tarih verisini elde et
@@ -38,10 +52,6 @@ const displayWeather = (data, flagUrl) => {
     year: "numeric",
     weekday: "long",
   });
-
-  console.log(flagUrl);
-
-  console.log(data);
 
   // Şehir adı ve ülke kodunu güncelle
   elements.location.textContent = `${data.name},${data.sys.country}`;
@@ -71,4 +81,22 @@ const displayWeather = (data, flagUrl) => {
   elements.weatherContainer.classList.remove("hidden");
 };
 
-export { elements, displayWeather, showLoader, hideLoader };
+// Theme Icon'unu güncelleyen fonksiyon
+
+const updateThemeIcon = (theme) => {
+  // Icon'a eriş
+  const icon = elements.themeBtn.querySelector("i");
+
+  // Buton içeriği eğer theme koyu theme ise güneş değilse ay iconu olsun
+  icon.className = theme == "light" ? "fa-solid fa-moon" : "fa-solid fa-sun";
+};
+
+export {
+  elements,
+  displayWeather,
+  showLoader,
+  hideLoader,
+  showError,
+  hideError,
+  updateThemeIcon,
+};
