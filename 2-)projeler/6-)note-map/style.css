@@ -44,12 +44,29 @@ aside:hover {
 aside .head {
   font-family: "Indie Flower", cursive;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(53, 53, 53);
   border-radius: 10px;
   padding: 5px;
   margin: 20px 20px 0 20px;
-
   letter-spacing: 3px;
+  padding-right: 10px;
+}
+aside .head h1 {
+  font-size: 25px;
+  flex: 1;
+}
+
+aside .head #arrow {
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+aside #add-title {
+  display: none;
 }
 
 aside form {
@@ -144,6 +161,8 @@ ul li #delete-btn:hover {
 
 /* Dynamic Class */
 
+/* * Add Mode */
+
 .add {
   height: 400px;
 }
@@ -152,6 +171,29 @@ ul li #delete-btn:hover {
   display: flex;
 }
 
-.add ul {
+.add ul,
+.add h1 {
+  display: none;
+}
+
+.add #add-title {
+  display: block;
+}
+
+/*  * Hide Mode */
+
+.hide {
+  height: 90px;
+}
+
+.hide .head {
+  margin-bottom: 20px;
+}
+
+.hide #arrow {
+  rotate: 180deg;
+}
+
+.hide :where(ul, form) {
   display: none;
 }
